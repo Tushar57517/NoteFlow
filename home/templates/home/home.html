@@ -16,7 +16,10 @@
             <button type="button" class="btn btn-primary">Logout</button>
         </div>
         {% else %}
-            <button type="button" class="btn btn-primary">Login</button>
+            <div class="d-flex flex-row gap-3">
+                <button type="button" class="btn btn-primary">Login</button>
+                <a href="{% url 'register' %}"><button type="button" class="btn btn-primary">Register</button></a>
+            </div>
         {% endif %}
     </div>
   
