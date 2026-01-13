@@ -1,0 +1,23 @@
+{% extends "home/base.html" %}
+
+{% block title %}
+  Home | NoteFlow
+{% endblock title %}
+
+{% block content %}
+  
+    <div class="vh-100 vw-100 d-flex flex-column justify-content-center align-items-center gap-3">
+        <h1>NoteFlow</h1>
+        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore vel, molestiae debitis veritatis <br> vero consectetur illum dolorum vitae eligendi provident facere doloribus, similique eos, impedit qui tenetur itaque. Repudiandae.</p>
+
+        {% if user.is_authenticated %}
+        <div class="d-flex flex-column gap-10">
+            <button type="button" class="btn btn-primary">Dashboard</button>
+            <button type="button" class="btn btn-primary">Logout</button>
+        </div>
+        {% else %}
+            <button type="button" class="btn btn-primary">Login</button>
+        {% endif %}
+    </div>
+  
+{% endblock content %}
