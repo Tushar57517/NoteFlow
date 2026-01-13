@@ -44,3 +44,25 @@ class LoginViewTest(TestCase):
 
         response = self.client.get('/')
         self.assertTrue(response.wsgi_request.user.is_authenticated)
+
+
+class LogoutViewTest(TestCase):
+
+    def test_logout_success(self):
+        User.objects.create_user(username="testuser", password="TestUser@123")
+
+        response = self.client.post(reverse('login'), {
+            "username":"testuser",
+            "password":"TestUser@123"
+        })
+
+        self.assertEqual(response.status_code, 302)
+
+        response = self.client.get('/')
+        self.assertTrue(response.wsgi_request.user.is_authenticated)
+
+        response = self.client.post(reverse('logout'))
+        self.assertEqual(response.status_code, 302)
+
+        response = self.client.get('/')
+        self.assertTrue(response.wsgi_request.user.is_anonymous)

@@ -13,7 +13,10 @@
         {% if user.is_authenticated %}
         <div class="d-flex flex-row gap-5">
             <button type="button" class="btn btn-primary">Dashboard</button>
-            <button type="button" class="btn btn-primary">Logout</button>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
         </div>
         {% else %}
             <div class="d-flex flex-row gap-3">
