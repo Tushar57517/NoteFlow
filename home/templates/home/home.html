@@ -11,14 +11,14 @@
         <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore vel, molestiae debitis veritatis <br> vero consectetur illum dolorum vitae eligendi provident facere doloribus, similique eos, impedit qui tenetur itaque. Repudiandae.</p>
 
         {% if user.is_authenticated %}
-        <div class="d-flex flex-column gap-10">
+        <div class="d-flex flex-row gap-5">
             <button type="button" class="btn btn-primary">Dashboard</button>
             <button type="button" class="btn btn-primary">Logout</button>
         </div>
         {% else %}
             <div class="d-flex flex-row gap-3">
-                <button type="button" class="btn btn-primary">Login</button>
-                <a href="{% url 'register' %}"><button type="button" class="btn btn-primary">Register</button></a>
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
             </div>
         {% endif %}
     </div>
