@@ -1,0 +1,13 @@
+{% extends "pages/base_page.html" %}
+
+{% block title %}
+  Create Page | NoteFlow
+{% endblock title %}
+
+{% block content %}
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Create Page</button>
+  </form>
+{% endblock content %}

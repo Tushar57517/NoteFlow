@@ -29,6 +29,11 @@
             >Dashboard</a
           >
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'create-page' %}"
+            >Create Page</a
+          >
+        </li>
         <!-- <li class="nav-item">
           <a class="nav-link" href="#">Features</a>
         </li>
@@ -40,15 +45,24 @@
   </nav>
   <h1 class="text-center">Good Afternoon</h1>
 
-  {% for page  in pages %}
-    <a href="{% url 'page-view' page.id %}" style="width: 18rem;" class="text-decoration-none">
-      <div class="card" style="width: 18rem;">
-      <img src="{{page.header.url}}" class="card-img-top" alt="..." width="20px" height="200px">
-        <div class="card-body">
-          <p class="card-text">{{page.title}}</p>
+  <div class="container">
+  <div class="row">
+    {% for page in pages %}
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card h-100">
+          <a href="{% url 'page-view' page.id %}" class="text-decoration-none text-dark">
+            {% if page.header %}
+              <img src="{{ page.header.url }}" class="card-img-top" alt="" style="height:200px; object-fit:cover;">
+            {% endif %}
+            <div class="card-body">
+              <p class="card-text">{{ page.title }}</p>
+            </div>
+          </a>
         </div>
       </div>
-    </a>
-  {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
 </div>
 {% endblock content %}

@@ -13,3 +13,9 @@ class PageViewTest(TestCase):
         response = self.client.get(reverse('page-view', args=[page.id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'pages/page.html')
+
+    def test_create_page(self):
+        payload = {"title":"Test Page", "content":"Test Content"}
+
+        response = self.client.post(reverse('create-page'), payload)
+        self.assertEqual(response.status_code, 302)
