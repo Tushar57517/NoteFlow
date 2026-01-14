@@ -1,9 +1,6 @@
-{% extends "home/base.html" %} 
+{% extends "home/base.html" %}
 
-{% block title %} Dashboard | NoteFlow {%endblock title %} 
-
-{% block content %}
-<div class="vh-100 vw-100 d-flex flex-column gap-5">
+{% block navbar %}
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">NoteFlow</a>
     <button
@@ -38,17 +35,4 @@
       </ul>
     </div>
   </nav>
-  <h1 class="text-center">Good Afternoon</h1>
-
-  {% for page  in pages %}
-    <a href="{% url 'page-view' page.id %}" style="width: 18rem;" class="text-decoration-none">
-      <div class="card" style="width: 18rem;">
-      <img src="{{page.header.url}}" class="card-img-top" alt="..." width="20px" height="200px">
-        <div class="card-body">
-          <p class="card-text">{{page.title}}</p>
-        </div>
-      </div>
-    </a>
-  {% endfor %}
-</div>
-{% endblock content %}
+{% endblock navbar %}
