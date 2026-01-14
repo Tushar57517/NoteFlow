@@ -43,7 +43,17 @@
       </ul>
     </div>
   </nav>
-  <h1 class="text-center">Good Afternoon</h1>
+  <h1 class="text-center">Good <span>
+    {% if time_of_day == 'morning' %}
+      Morning
+    {% endif %}
+    {% if time_of_day == 'afternoon' %}
+      Afternoon
+    {% endif %}
+    {% if time_of_day == 'evening' %}
+      Evening
+    {% endif %}
+  </span>, {{request.user.first_name}}</h1>
 
   <div class="container">
   <div class="row">
